@@ -5,7 +5,7 @@ Simple Spring Boot project to get a handle on how the [Spotify dockerfile-maven 
 Just use the standard Maven lifecycle phases `package` (build the image) or `deploy` (publish the image).
 
 ## Gotchas
-You need to disable the default `deploy` behaviour else it tries to publish to a Maven repository 
+You need to disable the default `deploy` behaviour else it tries (and fails!) to publish to a Maven repository 
 (_not_ the same as the Docker repo!).
 
 Do this by adding the property
