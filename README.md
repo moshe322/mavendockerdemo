@@ -13,3 +13,6 @@ Do this by adding the property
         <maven.deploy.skip>true</maven.deploy.skip>
 ```
 (other approaches are available...)
+
+_Note: the demo currently uses a secure ECR repo - as such, the `deploy` target will not work! But feel free to use the 
+POM as a template/crib sheet._
