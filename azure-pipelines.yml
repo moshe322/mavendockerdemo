@@ -25,3 +25,9 @@ steps:
         ArtifactName: 'drop'
         publishLocation: 'Container'
   displayName: 'published_artifacts'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'MSH_Azure_Docker'
+    repository: 'tmoshe/msh'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
