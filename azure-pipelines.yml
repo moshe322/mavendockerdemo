@@ -6,8 +6,8 @@ steps:
     git clone https://github.com/moshe322/mavendockerdemo.git
   displayName: 'clone-code'
 - script: |
-    - task: Maven@4
-      inputs:
+- task: Maven@4
+  inputs:
         mavenPomFile: 'pom.xml'
         goals: 'clean package'
         publishJUnitResults: true
@@ -19,8 +19,8 @@ steps:
         sonarQubeRunAnalysis: false
   displayName: 'maven-build'
 - script: |
-    - task: PublishBuildArtifacts@1
-      inputs:
+- task: PublishBuildArtifacts@1
+  inputs:
         PathtoPublish: 'target'
         ArtifactName: 'drop'
         publishLocation: 'Container'
