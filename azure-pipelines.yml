@@ -1,0 +1,27 @@
+
+trigger: none
+pool: default
+steps:
+- script: 
+    git clone https://github.com/moshe322/mavendockerdemo.git
+  displayName: 'clone-code'
+- script: |
+    - task: Maven@4
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: 'clean package'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+  displayName: 'maven-build'
+- script: |
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'target'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+  displayName: 'published_artifacts'
